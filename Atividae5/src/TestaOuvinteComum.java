@@ -1,32 +1,31 @@
 
-import java.awt.event.ActionListener;
-import javafx.event.ActionEvent;
+import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
-public class TestaOuvinteComum {
-    
-    private abstract class OuvinteComum implements ActionListener{
-        public void actionPerformed(ActionEvent e){
-                System.out.println("");
-        
-        }   
-    }
-            
-            
+public  class TestaOuvinteComum {
     public static void main(String[] args) {
-        ComandoActionListener ouvinte = new ComandoActionListener();
-        OuvinteComum ouvinteComum = new Ouvintecomum();
+        OuvinteComum ouvinte = new OuvinteComum() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); 
+            }
+        };
         
-        JButton botao = new Jbutton("OK");      
-        botao.addActionListener(ouvir);
+        JButton botao = new JButton("OK");
+        botao.addActionListener(ouvinte);
         
-        JPainel painel = new JPainel();
+        JPanel painel = new JPanel();
         painel.add(botao);
         
         JFrame janela = new JFrame();
-        painel.add(janela);
-        painel.setSize(100,200);
+        janela.add(painel);
+        janela.setSize(250,500);
+        janela.setVisible(true);
+        janela.setVisible(true);
+        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-}
+ }
+
